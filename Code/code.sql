@@ -22,7 +22,19 @@ Query 2: WHERE clause using IN operator subquery returning a list
 customers associated with store id 2. Order by customer id and payment date.
 2.B Rewrite the query to use a INNER JOIN (default join type) instead of a subquery
 **********************************************************/
+SELECT customer_id, payment_date, amount
+FROM payment
+WHERE customer_id IN
+	(SELECT customer_id
+    FROM customer
+    WHERE store_id = 2)
+ORDER BY customer_id, payment_date;
 
+SELECT p.customer_id, payment_date, amount
+FROM payment p JOIN customer c
+	ON p.customer_id = c.customer_id
+WHERE store_id = 2
+ORDER BY customer_id, payment_date;
 
 /**********************************************************
 Query 3: WHERE clause using the ALL operator subquery returning a list
