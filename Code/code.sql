@@ -10,7 +10,11 @@ Query 1: WHERE subquery returning one value
 Write a query that uses a subquery in the WHERE clause to count the number of payments that are greater than the
 average.
 **********************************************************/
-
+SELECT COUNT(amount)
+FROM payment
+WHERE amount >
+	(SELECT AVG(amount)
+    FROM payment);
 
 /**********************************************************
 Query 2: WHERE clause using IN operator subquery returning a list
