@@ -5,7 +5,7 @@
 - [Workers](#workers)
 - [New Concepts Used](#new-concepts-used)
 - [Browser Output Example](#browser-output-example)
-  - [Query 1](#query-1)
+  - [Query 1](##query-1)
   - [Query 2](#query-2)
   - [Query 3](#query-3)
   - [Query 4](#query-4)
