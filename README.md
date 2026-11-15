@@ -5,6 +5,7 @@
 - [Workers](#workers)
 - [New Concepts Used](#new-concepts-used)
 - [Browser Output Example](#browser-output-example)
+- [Query 1](#query-1)
 
 ## Summary
 This is a list of exercises, the code done to use them, and the results of that code and its product.
@@ -23,7 +24,7 @@ This is a list of exercises, the code done to use them, and the results of that 
 
 
 ## Browser Output Example
-##Exercise 1
+##Query 1
 
 <img src="assets/query1CheckSum.png" alt="Exercise 1" width="500" />
 
