@@ -31,33 +31,33 @@ This is a list of exercises, the code done to use them, and the results of that 
 
 <img src="assets/query1.png" alt="Query 1" width="500" />
 
-##Exercise 2
+##Query 2
 
-<img src="assets/query2.png" alt="Exercise 2" width="500" />
+<img src="assets/query2.png" alt="Query 2" width="500" />
 
-##Exercise 3
+##Query 3
 
-<img src="assets/query3.png" alt="Exercise 3" width="500" />
+<img src="assets/query3.png" alt="Query 3" width="500" />
 
-##Exercise 4
+##Query 4
 
-<img src="assets/query4.png" alt="Exercise 4" width="500" />
+<img src="assets/query4.png" alt="Query 4" width="500" />
 
-##Exercise 5
+##Query 5
 
-<img src="assets/query5.png" alt="Exercise 5" width="500" />
+<img src="assets/query5.png" alt="Query 5" width="500" />
 
-##Exercise 6
+##Query 6
 
-<img src="assets/query6.png" alt="Exercise 6" width="500" />
+<img src="assets/query6.png" alt="Query 6" width="500" />
 
-##Exercise 7
+##Query 7
 
-<img src="assets/query7.png" alt="Exercise 7" width="500" />
+<img src="assets/query7.png" alt="Query 7" width="500" />
 
-##Exercise 8
+##Query 8
 
-<img src="assets/query8.png" alt="Exercise 8" width="500" />
+<img src="assets/query8.png" alt="Query 8" width="500" />
 
 [Back to Top](#single-query)
 # Chapter7_Subqueries
