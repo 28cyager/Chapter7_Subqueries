@@ -44,7 +44,8 @@ The code is all in the Code folder.
 
 ## Query 4
 
-<img src="assets/query4.png" alt="Query 4" width="500" />
+<img src="assets/query4A.png" alt="Query 4" width="500" />
+<img src="assets/query4B.png" alt="Query 7" width="500" />
 
 ## Query 5
 
@@ -56,7 +57,8 @@ The code is all in the Code folder.
 
 ## Query 7
 
-<img src="assets/query7.png" alt="Query 7" width="500" />
+<img src="assets/query7A.png" alt="Query 7" width="500" />
+<img src="assets/query7B.png" alt="Query 7" width="500" />
 
 ## Query 8
 
