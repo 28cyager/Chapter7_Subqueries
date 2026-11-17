@@ -12,7 +12,6 @@
   - [Query 5 Output](#query-5)
   - [Query 6 Output](#query-6)
   - [Query 7 Output](#query-7)
-  - [Query 8 Output](#query-8)
 
 ## Summary
 This is a list of queries being used to teach subqueries.
