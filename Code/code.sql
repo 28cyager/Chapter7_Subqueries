@@ -42,7 +42,20 @@ Query 3: WHERE clause using the ALL operator subquery returning a list
 where the amount is greater than all of customer 1's payments. Order by customer id and payment date.
 3.B Rewrite the query to use a subquery using the MAX aggerated function instead of ALL operator.
 **********************************************************/
+SELECT customer_id, payment_date, amount
+FROM payment
+WHERE amount > ALL
+	(SELECT amount
+    FROM payment
+    WHERE customer_id = 1)
+ORDER BY customer_id, payment_date;
 
+SELECT customer_id, payment_date, amount
+FROM payment
+WHERE amount > 
+	(SELECT MAX(amount)
+	FROM payment
+    WHERE customer_id = 1)
 
 /**********************************************************
 Query 4: WHERE correlated subquery running multiple times (once for each outer
@@ -51,7 +64,18 @@ row)
 4.B Write a query that uses a correlated subquery in the WHERE clause to count all customer's payments greater than
 the customer's average payment.
 **********************************************************/
+SELECT customer_id, AVG(amount)
+FROM payment p
+GROUP BY customer_id;
 
+SELECT customer_id, COUNT(amount) AS count_over_avg_amt
+FROM payment p
+WHERE amount >
+	(SELECT AVG(amount)
+    FROM payment
+    WHERE customer_id = p.customer_id)
+GROUP BY customer_id;
+    
 
 /**********************************************************
 Query 5: WHERE subquery using EXISTS operator returning a Boolean value
@@ -60,7 +84,21 @@ NOTE: create a new customer so that there is at least one customer without a pay
 have any payments. Order by customer id.
 5.B Rewrite the query to use a LEFT JOIN instead of a subquery
 **********************************************************/
+INSERT INTO customer
+	(customer_id, store_id, first_name, last_name, email, address_id, active, create_date, last_update)
+VALUES
+	(606, 1, "DEBBIE", "JOHNSON", "DEBBIE.JOHNS@sakilacustomer.org", 600, 1, "2026-11-17 10:05:24", "2026-11-17 10:05:24");
+    
+SELECT customer_id, first_name, last_name
+FROM customer
+WHERE NOT EXISTS
+	(SELECT *
+    FROM payment
+    WHERE customer_id = customer.customer_id);
 
+SELECT c.customer_id, first_name, last_name
+FROM customer c LEFT JOIN payment p ON c.customer_id = p.customer_id
+WHERE amount IS NULL;
 
 /**********************************************************
 Query 6: SELECT subquery returning a single value
@@ -68,7 +106,16 @@ Query 6: SELECT subquery returning a single value
 Order by customer id DESC.
 6.B Rewrite the query to use a LEFT JOIN instead of a subquery
 **********************************************************/
+SELECT customer_id, first_name, last_name,
+	(SELECT MAX(payment_date) FROM payment p 
+		WHERE p.customer_id = c.customer_id) AS latest_payment
+FROM customer c
+ORDER BY customer_id DESC;
 
+SELECT c.customer_id, first_name, last_name, MAX(payment_date) AS latest_payment
+FROM customer c LEFT JOIN payment p ON c.customer_id = p.customer_id
+GROUP BY customer_id
+ORDER BY customer_id DESC;
 
 /**********************************************************
 Query 7: FROM subquery returning a inline view (temporary table)
@@ -77,3 +124,20 @@ customer, sort descending by total amount paid and limit the query to only displ
 7.B Write a query that displays all the payments for the top customer by joining 7.A query to the payment table sorting
 by payment date.
 **********************************************************/
+SELECT c.customer_id, SUM(amount) AS total_amt_paid
+FROM payment p JOIN customer c ON p.customer_id = c.customer_id
+GROUP BY p.customer_id
+ORDER BY total_amt_paid DESC
+LIMIT 1;
+
+SELECT p.customer_id, amount, payment_date
+FROM payment p JOIN
+(
+	SELECT c.customer_id, SUM(amount) AS total_amt_paid
+	FROM payment p JOIN customer c ON p.customer_id = c.customer_id
+	GROUP BY p.customer_id
+	ORDER BY total_amt_paid DESC
+	LIMIT 1
+) t
+ON p.customer_id = t.customer_id
+ORDER BY payment_date;
