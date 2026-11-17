@@ -60,9 +60,5 @@ The code is all in the Code folder.
 <img src="assets/query7A.png" alt="Query 7" width="500" />
 <img src="assets/query7B.png" alt="Query 7" width="500" />
 
-## Query 8
-
-<img src="assets/query8.png" alt="Query 8" width="500" />
-
 [Back to Top](#single-query)
 # Chapter7_Subqueries
